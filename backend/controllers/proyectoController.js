@@ -1,5 +1,5 @@
 export const home = (req, res) => {
-    res.send('Aqui la página de Index')
+    res.render('index')
 }
 
 export const contacto = (req, res)=>{
