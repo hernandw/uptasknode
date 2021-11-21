@@ -11,10 +11,6 @@ import proyectoControllers from '../controllers/proyectoController.js';
 
     router.get('/', proyectoControllers.home);
     
-    router.get('/nosotros', proyectoControllers.nosotros);
-    
-    router.get('/contacto', proyectoControllers.contacto);
+    router.get('/nuevo-proyecto', proyectoControllers.formularioProyecto);
 
-
-
-
+    router.post('/nuevo-proyecto', proyectoControllers.newProyect);

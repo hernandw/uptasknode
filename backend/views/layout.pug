@@ -4,18 +4,25 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        link(rel="stylesheet", href="/css/app.css")
         link(rel="stylesheet", href="/css/normalize.css")
         link(rel="stylesheet", href="/css/style.css")
-        title Document
+        link(rel="stylesheet", href="/css/app.css")
+        title #{nombrePagina}
     body 
         header.barra
-            h1 UPTASK - Administrador de Proyectos
+            h1 
+                a(href="/")  UPTASK - Administrador de Proyectos
             a(href="#") Cerrar Sesión
         main.contenedor
             aside.contenedor-proyectos
                 .panel.crear-proyectos
-                    a(href="#" class="boton") Nuevo Proyecto
+                    a(href="/nuevo-proyecto" class="boton") Nuevo Proyecto
                         span +
-                .panel 
-                    block contenido
+                .panel.lista-proyectos
+                    li 
+                        a(href="#") Diseño de una Tienda Virtual
+                    li 
+                        a(href="#") Diseño de nuevo Blog
+                    li 
+                        a(href="#") Diseño de nuevo logotipo      
+            block contenido

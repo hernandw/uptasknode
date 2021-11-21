@@ -13,6 +13,8 @@ app.listen(port, (req, res)=>  {
     console.log(`Servidor Activo on ${port}` )
 });
 
+app.use(express.urlencoded({ extended: true}))
+
 //Archivos Publicos
 app.use(express.static('public'));
 
