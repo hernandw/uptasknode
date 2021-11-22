@@ -1,17 +1,17 @@
-export const home = (req, res) => {
+exports.home = (req, res) => {
     res.render('index', {
         nombrePagina: 'Proyectos'
     })
 }
 
-export const formularioProyecto = (req, res)=>{
+exports.formularioProyecto = (req, res)=>{
     res.render('proyecto', {
         nombrePagina: 'Nuevos Proyectos'
     });
 
 }
 
-export const newProyect = (req, res)=>{
+exports.newProyect = (req, res)=>{
     const { nombre } = req.body;
 let errores = [];
 
@@ -28,13 +28,7 @@ if(errores.length > 0){
 }
 
 
-export const nosotros = (req, res)=>{
+exports.nosotros = (req, res)=>{
     res.send('Aqui la página de Nosotros');
 }
 
-export default {
-    home,
-    formularioProyecto,
-    nosotros,
-    newProyect
-}

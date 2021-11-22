@@ -1,11 +1,11 @@
-import express from 'express';
-
+/* import express from 'express'; */
+const express = require('express')
 const router = express.Router();
 
-export default router
+
 
 //Importando el Controlador
-import proyectoControllers from '../controllers/proyectoController.js';
+const proyectoControllers = require('../controllers/proyectoController.js') ;
 
 
 
@@ -14,3 +14,5 @@ import proyectoControllers from '../controllers/proyectoController.js';
     router.get('/nuevo-proyecto', proyectoControllers.formularioProyecto);
 
     router.post('/nuevo-proyecto', proyectoControllers.newProyect);
+
+    module.exports = router;
