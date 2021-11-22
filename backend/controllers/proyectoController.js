@@ -1,5 +1,7 @@
 const data = require("../models/Proyectos");
 const slug = require('slug');
+const { v4: uuidv4 } = require('uuid');
+
 exports.home = (req, res) => {
   res.render("index", {
     nombrePagina: "Proyectos",
@@ -26,8 +28,9 @@ exports.newProyect = async (req, res) => {
       errores,
     });
   } else {
+      const record = uuidv4().slice(30);
       const url = slug(nombre).toLowerCase();
-    const proyecto = await data.create({ nombre, url });
+    const proyecto = await data.create({nombre, url, record });
     res.redirect('/');
   }
 };
