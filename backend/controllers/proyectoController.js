@@ -1,10 +1,13 @@
 const data = require("../models/Proyectos");
 const slug = require('slug');
 const { v4: uuidv4 } = require('uuid');
+const Proyectos  = require("../models/Proyectos");
 
-exports.home = (req, res) => {
-  res.render("index", {
+exports.home = async (req, res) => {
+  const data = await Proyectos.findAll();
+    res.render("index", {
     nombrePagina: "Proyectos",
+    data
   });
 };
 

@@ -19,10 +19,10 @@ html(lang="en")
                     a(href="/nuevo-proyecto" class="boton") Nuevo Proyecto
                         span +
                 .panel.lista-proyectos
-                    li 
-                        a(href="#") Diseño de una Tienda Virtual
-                    li 
-                        a(href="#") Diseño de nuevo Blog
-                    li 
-                        a(href="#") Diseño de nuevo logotipo      
+                   if(data.length)
+                    each proyecto in data
+
+                        li 
+                            a(href="#")= proyecto.nombre
+                         
             block contenido
