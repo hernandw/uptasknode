@@ -3,3 +3,16 @@ extends layout
 block contenido
     .contenido-principal 
         h1 #{nombrePagina} - #{proyecto.nombre}
+
+        // Formulario del Proyecto
+
+        // Cosas pedientes por hacer
+
+
+        pre= vardump(proyecto)
+        // Acciones a realizar
+
+            
+        .contenedor-acciones
+            a(href=`/proyectos/editar/${proyecto.id}` class='boton') Editar Proyecto
+            button#eliminar-proyecto(type='button' class='boton eliminar') Eliminar Proyecto

@@ -18,4 +18,6 @@ router.post(
 
 router.get('/proyectos/:url', proyectoControllers.paginaPorUrl);
 
+router.get('/proyectos/editar/:id', proyectoControllers.formularioEditar);
+
 module.exports = router;

@@ -49,16 +49,31 @@ exports.nosotros = (req, res) => {
 };
 
 exports.paginaPorUrl = async (req, res) => {
-  const data = await Proyectos.findAll();
-  const proyecto = await Proyectos.findOne({
+  const dataPromise = Proyectos.findAll();
+  const proyectoPromise = Proyectos.findOne({
     where: {
       url: req.params.url,
     },
-  });
-
+  }); 
+  const [data, proyecto] = await Promise.all([dataPromise, proyectoPromise] );
   res.render("tareas", {
     nombrePagina: "Tareas del Proyecto",
     proyecto,
     data,
+  });
+};
+
+exports.formularioEditar = async (req, res) => {
+  const dataPromise = Proyectos.findAll();
+  const proyectoPromise = Proyectos.findOne({
+    where: {
+      id: req.params.id,
+    },
+  }); 
+  const [data, proyecto] = await Promise.all([dataPromise, proyectoPromise] );
+  res.render("proyecto", {
+    nombrePagina: 'Editar Proyecto',
+    proyecto,
+    data
   });
 };
