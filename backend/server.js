@@ -11,7 +11,9 @@ const __dirname = path.dirname(__filename); */
 const path = require('path')
 /* import db from '../backend/config/db'; */
 const db = require('../backend/config/db');
-require('./models/Proyectos')
+require('./models/Proyectos');
+const helpers = require('../helpers');
+/* const { Validators } = require('express-validators'); */
 
 
 try{
@@ -25,11 +27,18 @@ try{
 app.listen(port, (req, res)=>  {
     console.log(`Servidor Activo on ${port}` )
 });
+// Pasar vardump a la aplicación
+app.use((req, res, next)=>{
+  res.locals.vardump = helpers.vardump;
+  next();
+});
 
 app.use(express.urlencoded({ extended: true}))
 
 //Archivos Publicos
 app.use(express.static('public'));
+
+/* app.use(expressValidators()); */
 
 //habilitando pug
 app.set('view engine', 'pug');

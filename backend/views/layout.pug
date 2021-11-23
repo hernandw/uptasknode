@@ -19,10 +19,11 @@ html(lang="en")
                     a(href="/nuevo-proyecto" class="boton") Nuevo Proyecto
                         span +
                 .panel.lista-proyectos
-                   if(data.length)
-                    each proyecto in data
-
-                        li 
-                            a(href="#")= proyecto.nombre
-                         
+                    h2 Proyectos
+                    ul#proyectos.proyectos
+                       if(data.length)
+                        each dato in data
+                            li 
+                               a(href=`/proyectos/${dato.url}`)= dato.nombre   
             block contenido
+            //- pre= vardump(data)   
