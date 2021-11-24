@@ -77,3 +77,32 @@ exports.formularioEditar = async (req, res) => {
     data
   });
 };
+
+exports.actualizarFormulario = async (req, res) => {
+  const data = await Proyectos.findAll();
+  const { nombre } = req.body;
+  let errores = [];
+
+  if (!nombre) {
+    errores.push({ texto: "Agrega un nombre al proyecto" });
+  }
+
+  if (errores.length > 0) {
+    res.render("proyecto", {
+      nombrePagina: "Nuevo Proyecto",
+      errores,
+      data,
+      
+    });
+  } else {
+    const record = uuidv4().slice(30);
+    const url = slug(nombre).toLowerCase();
+    const data = await Proyectos.update({ nombre, url },
+      {
+        where: {
+          id: req.params.id,
+        }
+      });
+    res.redirect("/");
+  }
+};
