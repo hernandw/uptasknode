@@ -4,13 +4,16 @@
   "description": "Administrador de Tareas",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon backend/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon backend/server.js",
+    "start": "concurrently \"npm run dev\" \"npm run watch\" ",
+    "watch": "webpack --watch --mode development" 
   },
+  "test": "echo \"Error: no test specified\" && exit 1",
   "keywords": [],
   "author": "Williams Hernandez",
   "license": "MIT",
   "dependencies": {
+    "concurrently": "^6.4.0",
     "express": "^4.17.1",
     "express-validator": "^6.13.0",
     "mysql2": "^2.3.3",
@@ -20,6 +23,11 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "nodemon": "^2.0.15"
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "babel-loader": "^8.2.3",
+    "nodemon": "^2.0.15",
+    "webpack": "^5.64.3",
+    "webpack-cli": "^4.9.1"
   }
 }
